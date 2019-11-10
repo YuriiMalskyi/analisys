@@ -1,6 +1,5 @@
 package com.spec.analysis.utils.validators;
 
-
 import com.spec.analysis.utils.validators.constants.ValidationConstants;
 import com.spec.analysis.utils.validators.constants.ValidationEnums;
 

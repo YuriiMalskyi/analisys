@@ -8,11 +8,11 @@ import lombok.Data;
 @Data
 public class LoginRequest {
 
-    @Username
+//    @Username
     @NotNull
     private String username;
 
-    @Password
+//    @Password
     @NotNull
     private String password;
 
