@@ -2,10 +2,7 @@ package com.spec.analysis.entity;
 
 
 import com.spec.analysis.enums.SpecificationTypes;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -16,6 +13,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "specifications")
@@ -33,7 +31,7 @@ public class Specification extends BaseEntity {
     @Column(name = "specification_type")
     private SpecificationTypes specificationType;
 
-    @OneToMany//(mappedBy = "specifications")
+    @OneToMany(mappedBy = "specifications")
     @Cascade({org.hibernate.annotations.CascadeType.ALL})
     private List<SpecificationElement> specificationElements;
 

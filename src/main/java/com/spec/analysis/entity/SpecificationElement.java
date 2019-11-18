@@ -1,9 +1,6 @@
 package com.spec.analysis.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
@@ -13,13 +10,14 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "specification_elements")
 public class SpecificationElement extends BaseEntity {
 
     @Column(name = "sequence_number")
-    private String sequenceNumber;
+    private Integer sequenceNumber;
 
     private String text;
 
@@ -32,8 +30,8 @@ public class SpecificationElement extends BaseEntity {
     @BatchSize(size = 20)
     private List<SpecificationElement> childSpecificationElements = new ArrayList<>();
 
-//    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-//    @JoinColumn(name = "specifications_id", nullable = false, referencedColumnName = "id")
-//    private Specification specification;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "specifications_id", referencedColumnName = "id")
+    private Specification specification;
 
 }
