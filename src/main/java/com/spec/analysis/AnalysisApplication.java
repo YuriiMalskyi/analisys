@@ -15,6 +15,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 @SpringBootApplication
@@ -70,30 +71,49 @@ public class AnalysisApplication implements CommandLineRunner {
                         .author(userRepository.findById(1L).get())
                         .specificationType(SpecificationType.STANDARD_SPECIFICATION)
                         .build();
-                specificationRepository.save(specification);
-                System.out.println("Specification created:\n" + specification.toString());
-            }
-            if (specificationElementsCount == 0) {
-                System.out.println("Creating new specification element...");
-                Specification specification = specificationRepository.getOne(1L);
+
                 SpecificationElement specificationElement = SpecificationElement.builder()
                         .sequenceNumber(1)
+                        .elementTitle("TEST")
                         .childSpecificationElements(null)
                         .specification(specification)
                         .text("specificationElement")
                         .build();
-                specificationElementRepository.save(specificationElement);
-                System.out.println("Specification element created:\n" + specificationElement.toString());
+
+                specification.setSpecificationElements(Collections.singletonList(specificationElement));
+//                specificationElementRepository.save(specificationElement);
+                System.out.println("Specification: \n" + specification.toString());
+                specificationRepository.save(specification);
+                System.out.println("Specification created:\n" + specification.toString());
             }
-        } else {
+            if (specificationElementsCount == 0) {
+//                System.out.println("Creating new specification element...");
+//                Specification specification = specificationRepository.getOne(1L);
+//                SpecificationElement specificationElement = SpecificationElement.builder()
+//                        .sequenceNumber(1)
+//                        .childSpecificationElements(null)
+//                        .specification(specification)
+//                        .text("specificationElement")
+//                        .build();
+//                specificationElementRepository.save(specificationElement);
+//                System.out.println("Specification element created:\n" + specificationElement.toString());
+            }
+        }
+        if (usersCount != 0
+                || specificationsCount != 0
+                || specificationElementsCount != 0) {
             System.out.println("DataBase data found...");
-            System.out.println("Users count: " + usersCount);
-            List<User> users = userRepository.findAll();
-            for(User u : users){
-                System.out.println(u.toString());
+            if (usersCount != 0) {
+                System.out.println("Users count: " + usersCount);
+                List<User> users = userRepository.findAll();
+                for (User u : users) {
+                    System.out.println(u.toString());
+                }
             }
-            System.out.println("Specifications count: " + specificationsCount);
-            System.out.println("Specifications elements count: " + specificationElementsCount);
+            if (specificationsCount != 0) {
+                System.out.println("Specifications count: " + specificationsCount);
+                System.out.println(specificationRepository.getBySpecificationType(SpecificationType.STANDARD_SPECIFICATION).toString());
+            }
         }
 
         System.out.println(evaluationService.evaluateSpecification(specificationService.getStandard()));
