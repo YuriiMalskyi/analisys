@@ -2,11 +2,12 @@ package com.spec.analysis.service;
 
 import com.spec.analysis.dto.request.LoginRequest;
 import com.spec.analysis.dto.request.RegisterRequest;
+import com.spec.analysis.dto.response.AuthResponse;
 
 public interface AuthService {
 
-    String logIn(LoginRequest loginRequest);
+    AuthResponse login(LoginRequest loginRequest);
 
-    String signUp(RegisterRequest registerRequest);
+    AuthResponse register(RegisterRequest registerRequest);
 
 }

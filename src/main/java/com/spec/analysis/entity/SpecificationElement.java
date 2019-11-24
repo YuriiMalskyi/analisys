@@ -1,5 +1,6 @@
 package com.spec.analysis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true, exclude = {"specification"})
 @Table(name = "specification_elements")
 public class SpecificationElement extends BaseEntity {
 
@@ -21,7 +23,9 @@ public class SpecificationElement extends BaseEntity {
 
     private String text;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    private String elementTitle;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(
             name = "elements_hierarchy",
             joinColumns = {@JoinColumn(name = "base_spec_id", referencedColumnName = "id")},
@@ -30,8 +34,17 @@ public class SpecificationElement extends BaseEntity {
     @BatchSize(size = 20)
     private List<SpecificationElement> childSpecificationElements = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    @JoinColumn(name = "specifications_id", referencedColumnName = "id")
+    /**
+     * JsonIgnore to avoid infinite recursion.
+     */
+    @JsonIgnore
+    @ManyToOne//(fetch = FetchType.LAZY)
+    @JoinColumn(name = "specification_id", referencedColumnName = "id")
     private Specification specification;
+
+    public static boolean compareElements(SpecificationElement studentElement, SpecificationElement standardElement){
+        return (standardElement.getSequenceNumber().equals(studentElement.getSequenceNumber())
+                && standardElement.getElementTitle().equals(studentElement.getElementTitle()));
+    }
 
 }

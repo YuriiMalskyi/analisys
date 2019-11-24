@@ -17,9 +17,15 @@ public class ServerExceptionHandler {
     }
 
     @ExceptionHandler(value = UsernameAlreadyTakenException.class)
-    public ResponseEntity<ErrorMessage> hadleUsernameAlreadyTakenException(UsernameAlreadyTakenException e, WebRequest req) {
+    public ResponseEntity<ErrorMessage> handleUsernameAlreadyTakenException(UsernameAlreadyTakenException e, WebRequest req) {
         ErrorMessage errorMessage = new ErrorMessage(e.getMessage());
-        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);		// correct
-//        return ResponseEntity.badRequest().body(errorMessage);	// also correct
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = UserNotFoundException.class)
+    public ResponseEntity<ErrorMessage> handleUserNotFoundException(UsernameAlreadyTakenException e, WebRequest req) {
+        ErrorMessage errorMessage = new ErrorMessage(e.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.spec.analysis.entity;
 
 
-import com.spec.analysis.enums.SpecificationTypes;
+import com.spec.analysis.enums.SpecificationType;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 
@@ -16,6 +16,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 @Table(name = "specifications")
 public class Specification extends BaseEntity {
 
@@ -29,14 +30,16 @@ public class Specification extends BaseEntity {
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "specification_type")
-    private SpecificationTypes specificationType;
+    private SpecificationType specificationType;
 
-    @OneToMany(mappedBy = "specifications")
+    @OneToMany(mappedBy = "specification")
     @Cascade({org.hibernate.annotations.CascadeType.ALL})
     private List<SpecificationElement> specificationElements;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "author")
     private User author;
+
+    private int points;
 
 }

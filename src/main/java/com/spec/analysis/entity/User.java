@@ -1,17 +1,19 @@
 package com.spec.analysis.entity;
 
-import com.spec.analysis.enums.Authorities;
 import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "users")
 public class User extends BaseEntity {
 
@@ -20,7 +22,7 @@ public class User extends BaseEntity {
     private String username;
 
     @NotNull
-    @Size(min = 6, max = 30)
+    @Size(min = 3, max = 30)
     private String password;
 
     @NotNull
@@ -32,7 +34,6 @@ public class User extends BaseEntity {
     private String lastName;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private Authorities authority;
+    private Boolean isStudent;
 
 }
