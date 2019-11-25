@@ -75,7 +75,7 @@ public class AnalysisApplication implements CommandLineRunner {
                 SpecificationElement specificationElement = SpecificationElement.builder()
                         .sequenceNumber(1)
                         .elementTitle("TEST")
-                        .childSpecificationElements(null)
+                        .specificationElements(null)
                         .specification(specification)
                         .text("specificationElement")
                         .build();
@@ -85,18 +85,6 @@ public class AnalysisApplication implements CommandLineRunner {
                 System.out.println("Specification: \n" + specification.toString());
                 specificationRepository.save(specification);
                 System.out.println("Specification created:\n" + specification.toString());
-            }
-            if (specificationElementsCount == 0) {
-//                System.out.println("Creating new specification element...");
-//                Specification specification = specificationRepository.getOne(1L);
-//                SpecificationElement specificationElement = SpecificationElement.builder()
-//                        .sequenceNumber(1)
-//                        .childSpecificationElements(null)
-//                        .specification(specification)
-//                        .text("specificationElement")
-//                        .build();
-//                specificationElementRepository.save(specificationElement);
-//                System.out.println("Specification element created:\n" + specificationElement.toString());
             }
         }
         if (usersCount != 0
@@ -116,7 +104,9 @@ public class AnalysisApplication implements CommandLineRunner {
             }
         }
 
-        System.out.println(evaluationService.evaluateSpecification(specificationService.getStandard()));
+        Specification standard = specificationService.getStandard();
+
+        System.out.println(evaluationService.evaluateSpecification(standard));
 
     }
 

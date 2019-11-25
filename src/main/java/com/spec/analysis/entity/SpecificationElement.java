@@ -32,7 +32,7 @@ public class SpecificationElement extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "child_spec_id", referencedColumnName = "id")}
     )
     @BatchSize(size = 20)
-    private List<SpecificationElement> childSpecificationElements = new ArrayList<>();
+    private List<SpecificationElement> specificationElements = new ArrayList<>();
 
     /**
      * JsonIgnore to avoid infinite recursion.
@@ -42,7 +42,7 @@ public class SpecificationElement extends BaseEntity {
     @JoinColumn(name = "specification_id", referencedColumnName = "id")
     private Specification specification;
 
-    public static boolean compareElements(SpecificationElement studentElement, SpecificationElement standardElement){
+    public static boolean compareElements(SpecificationElement studentElement, SpecificationElement standardElement) {
         return (standardElement.getSequenceNumber().equals(studentElement.getSequenceNumber())
                 && standardElement.getElementTitle().equals(studentElement.getElementTitle()));
     }
