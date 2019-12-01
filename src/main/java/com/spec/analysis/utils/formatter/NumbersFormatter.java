@@ -5,19 +5,18 @@ import java.text.DecimalFormat;
 public class NumbersFormatter {
 
     public static Double formatDouble(Double number) {
-
         return formatDouble(number, 2);
     }
 
-    public static Double formatDouble(Double number, int digits) {
+    private static Double formatDouble(Double number, int digits) {
 
         StringBuilder pattern = new StringBuilder("#.");
         for (int i = 0; i < digits; i++) {
             pattern.append("#");
         }
         DecimalFormat decimalFormat = new DecimalFormat(pattern.toString());
-        String dx = decimalFormat.format(number);
+        String dx = decimalFormat.format(number).replace(',', '.');
 
-        return Double.valueOf(dx);
+        return Double.parseDouble(dx);
     }
 }
