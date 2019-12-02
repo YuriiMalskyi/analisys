@@ -2,6 +2,7 @@ package com.spec.analysis.service;
 
 import com.spec.analysis.dto.SpecificationDTO;
 import com.spec.analysis.entity.Specification;
+import com.spec.analysis.enums.StudentSpecificationType;
 
 import java.util.List;
 
@@ -13,7 +14,8 @@ public interface SpecificationService {
 
     SpecificationDTO getSpecificationById(Long id);
 
-    SpecificationDTO getSpecificationByStudentId(Long id);
+    List<SpecificationDTO> getSpecificationsByStudentIdAndType(
+            Long id, StudentSpecificationType studentSpecificationType);
 
     List<SpecificationDTO> getSpecificationsByStudentId(Long id);
 

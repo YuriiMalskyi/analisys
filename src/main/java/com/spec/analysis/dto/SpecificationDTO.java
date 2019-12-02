@@ -15,6 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 public class SpecificationDTO {
 
+    private Long id;
+
+    @JsonFormat(pattern = "specification_name")
     private String specificationName;
 
     private String description;

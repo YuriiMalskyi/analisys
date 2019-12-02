@@ -40,6 +40,6 @@ public class Specification extends BaseEntity {
     @JoinColumn(name = "author")
     private User author;
 
-    private int points;
+    private double mark;
 
 }

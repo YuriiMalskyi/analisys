@@ -3,6 +3,7 @@ package com.spec.analysis.service.impl;
 import com.spec.analysis.dto.SpecificationDTO;
 import com.spec.analysis.entity.Specification;
 import com.spec.analysis.enums.SpecificationType;
+import com.spec.analysis.enums.StudentSpecificationType;
 import com.spec.analysis.repository.SpecificationRepository;
 import com.spec.analysis.service.SpecificationService;
 import com.spec.analysis.utils.mapper.ObjectMapper;
@@ -38,7 +39,7 @@ public class SpecificationServiceImpl implements SpecificationService {
     }
 
     @Override
-    public SpecificationDTO getSpecificationByStudentId(Long id) {
+    public List<SpecificationDTO> getSpecificationsByStudentIdAndType(Long id, StudentSpecificationType studentSpecificationType) {
         return null;
     }
 
