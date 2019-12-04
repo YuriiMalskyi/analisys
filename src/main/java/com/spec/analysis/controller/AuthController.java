@@ -2,7 +2,6 @@ package com.spec.analysis.controller;
 
 import com.spec.analysis.dto.request.LoginRequest;
 import com.spec.analysis.dto.request.RegisterRequest;
-import com.spec.analysis.dto.response.StringObjectResponse;
 import com.spec.analysis.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +26,5 @@ public class AuthController {
     public ResponseEntity login(@RequestBody LoginRequest loginRequest) {
         return ResponseEntity.ok(authService.login(loginRequest));
     }
-
-    
 
 }

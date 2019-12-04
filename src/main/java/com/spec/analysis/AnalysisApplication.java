@@ -22,20 +22,27 @@ import java.util.List;
 @Transactional
 public class AnalysisApplication implements CommandLineRunner {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    SpecificationElementRepository specificationElementRepository;
+    private final SpecificationElementRepository specificationElementRepository;
 
-    @Autowired
-    SpecificationRepository specificationRepository;
+    private final SpecificationRepository specificationRepository;
 
-    @Autowired
-    EvaluationService evaluationService;
+    private final EvaluationService evaluationService;
 
-    @Autowired
-    SpecificationService specificationService;
+    private final SpecificationService specificationService;
+
+    public AnalysisApplication(SpecificationService specificationService,
+                               EvaluationService evaluationService,
+                               SpecificationRepository specificationRepository,
+                               SpecificationElementRepository specificationElementRepository,
+                               UserRepository userRepository) {
+        this.specificationService = specificationService;
+        this.evaluationService = evaluationService;
+        this.specificationRepository = specificationRepository;
+        this.specificationElementRepository = specificationElementRepository;
+        this.userRepository = userRepository;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(AnalysisApplication.class, args);
@@ -104,9 +111,9 @@ public class AnalysisApplication implements CommandLineRunner {
             }
         }
 
-        Specification standard = specificationService.getStandard();
+        Specification standard = specificationService.getStandards().get(0);
 
-        System.out.println(evaluationService.evaluateSpecification(standard));
+        System.out.println(evaluationService.evaluateSpecification(standard, standard));
 
     }
 

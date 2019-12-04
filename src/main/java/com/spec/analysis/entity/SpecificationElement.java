@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper = true, exclude = {"specification"})
+@ToString(exclude = {"specification"})
 @Table(name = "specification_elements")
 public class SpecificationElement extends BaseEntity {
 

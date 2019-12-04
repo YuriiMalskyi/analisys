@@ -26,8 +26,7 @@ public class EvaluationServiceImpl implements EvaluationService {
     }
 
     @Override
-    public Double evaluateSpecification(Specification studentSpecification) {
-        Specification standardSpecification = specificationRepository.getBySpecificationType(SpecificationType.STANDARD_SPECIFICATION);
+    public Double evaluateSpecification(Specification standardSpecification, Specification studentSpecification) {
         Map<ElementsMapKeys, Integer> results;
 
         if (Objects.nonNull(studentSpecification.getSpecificationElements())

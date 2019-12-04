@@ -34,8 +34,6 @@ public class AuthServiceImpl implements AuthService {
             if (user.getPassword().equals(loginRequest.getPassword())) {
                 authResponse = mapper.map(user, AuthResponse.class);
             }
-        } else {
-            throw new UserNotFoundException(loginRequest.getUsername());
         }
         return authResponse;
     }

@@ -40,6 +40,11 @@ public class Specification extends BaseEntity {
     @JoinColumn(name = "author")
     private User author;
 
-    private double mark;
+    @NotNull
+    @Column(columnDefinition = "float default 0.0")
+    private Double mark;// = 0.0;
 
+    @OneToOne
+    @JoinColumn(name = "standard_specification")
+    private Specification standardSpecification;
 }

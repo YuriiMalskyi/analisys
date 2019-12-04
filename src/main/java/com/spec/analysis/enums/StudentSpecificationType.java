@@ -1,7 +1,7 @@
 package com.spec.analysis.enums;
 
 public enum StudentSpecificationType {
-    SOLVED_SPECIFICATION("SOLVED_SPECIFICATION"),
+    EVALUATED_SPECIFICATION("EVALUATED_SPECIFICATION"),
     SAVED_SPECIFICATION("SAVED_SPECIFICATION");
 
     private String value;

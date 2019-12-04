@@ -4,6 +4,6 @@ import com.spec.analysis.entity.Specification;
 
 public interface EvaluationService {
 
-    Double evaluateSpecification(Specification studentSpecification);
+    Double evaluateSpecification(Specification standardSpecification, Specification studentSpecification);
 
 }

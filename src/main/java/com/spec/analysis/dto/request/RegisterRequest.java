@@ -1,6 +1,7 @@
 package com.spec.analysis.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -13,12 +14,13 @@ public class RegisterRequest {
 
     private String password;
 
-    @JsonFormat(pattern = "first_name")
+    @JsonProperty("first_name")
     private String firstName;
 
-    @JsonFormat(pattern = "last_name")
+    @JsonProperty("last_name")
     private String lastName;
 
+    @JsonProperty("is_student")
     private Boolean isStudent;
 
 }

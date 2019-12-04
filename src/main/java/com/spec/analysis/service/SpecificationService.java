@@ -1,6 +1,8 @@
 package com.spec.analysis.service;
 
 import com.spec.analysis.dto.SpecificationDTO;
+import com.spec.analysis.dto.response.SingleObjectResponse;
+import com.spec.analysis.dto.response.SpecificationNameMarkResponse;
 import com.spec.analysis.entity.Specification;
 import com.spec.analysis.enums.StudentSpecificationType;
 
@@ -14,13 +16,15 @@ public interface SpecificationService {
 
     SpecificationDTO getSpecificationById(Long id);
 
-    List<SpecificationDTO> getSpecificationsByStudentIdAndType(
+    List<SpecificationNameMarkResponse> getSpecificationsByStudentIdAndType(
             Long id, StudentSpecificationType studentSpecificationType);
 
-    List<SpecificationDTO> getSpecificationsByStudentId(Long id);
+    List<SpecificationNameMarkResponse> getSpecificationsByStudentId(Long id);
 
-    Specification getStandard();
+    List<Specification> getStandards();
 
-    SpecificationDTO getStandardDTO();
+    List<SpecificationDTO> getStandardsDTO();
+
+    SingleObjectResponse evaluateSpecification(Long standardSpecificationId, Long studentSpecificationId);
 
 }
