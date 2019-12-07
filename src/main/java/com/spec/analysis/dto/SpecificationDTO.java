@@ -32,4 +32,5 @@ public class SpecificationDTO {
     @JsonProperty("specification_elements")
     private List<SpecificationElementDTO> specificationElements;
 
+    private Long standardSpecificationId;
 }

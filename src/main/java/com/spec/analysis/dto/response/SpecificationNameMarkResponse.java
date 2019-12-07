@@ -11,9 +11,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SpecificationNameMarkResponse {
 
+    private Long id;
+
     @JsonProperty("specification_name")
     private String specificationName;
 
     private double mark;
 
+    private Long standardSpecificationId;
 }

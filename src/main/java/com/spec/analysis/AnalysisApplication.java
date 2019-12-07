@@ -107,7 +107,7 @@ public class AnalysisApplication implements CommandLineRunner {
             }
             if (specificationsCount != 0) {
                 System.out.println("Specifications count: " + specificationsCount);
-                System.out.println(specificationRepository.getBySpecificationType(SpecificationType.STANDARD_SPECIFICATION).toString());
+                System.out.println(specificationRepository.getAllBySpecificationType(SpecificationType.STANDARD_SPECIFICATION).toString());
             }
         }
 
