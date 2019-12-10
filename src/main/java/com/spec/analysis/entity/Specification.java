@@ -16,7 +16,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper = true)
+//@ToString(callSuper = false)
 @Table(name = "specifications")
 public class Specification extends BaseEntity {
 
@@ -32,7 +32,7 @@ public class Specification extends BaseEntity {
     @Column(name = "specification_type")
     private SpecificationType specificationType;
 
-    @OneToMany(mappedBy = "specification")
+    @OneToMany(mappedBy = "specification", cascade = {CascadeType.ALL}, orphanRemoval = true)
     @Cascade({org.hibernate.annotations.CascadeType.ALL})
     private List<SpecificationElement> specificationElements;
 

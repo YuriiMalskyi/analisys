@@ -18,6 +18,8 @@ public interface SpecificationRepository extends JpaRepository<Specification, Lo
 
     Optional<List<Specification>> findByAuthorIdAndMarkNot(Long userId, Double mark);
 
-    @Query("select s from Specification s where s.id not in (select ss.id from Specification ss where ss.author.id = :userId)")
+    @Query(nativeQuery = true,
+            value = "select s.* from specifications s where s.id not in (select ss.id from specifications ss where ss.author = :userId " +
+                    "union select ss.standard_specification from specifications ss where ss.author = :userId)")
     Optional<List<Specification>> findNotStartedSpecifications(Long userId);
 }

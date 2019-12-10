@@ -18,8 +18,6 @@ public class SpecificationElementDTO {
     @JsonProperty("element_title")
     private String elementTitle;
 
-    private String text;
-
     @JsonProperty("specification_elements")
     private List<SpecificationElementDTO> specificationElements;
 

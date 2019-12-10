@@ -15,6 +15,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -69,11 +70,23 @@ public class AnalysisApplication implements CommandLineRunner {
                         .build();
                 userRepository.save(user);
                 System.out.println("User created:\n" + user.toString());
+
+                System.out.println("Creating new user...");
+                User student = User.builder()
+                        .username("student")
+                        .password("password")
+                        .firstName("student")
+                        .lastName("student")
+                        .isStudent(true)
+                        .build();
+                userRepository.save(student);
+                System.out.println("User created:\n" + student.toString());
             }
             if (specificationsCount == 0) {
                 System.out.println("Creating new specification...");
                 Specification specification = Specification.builder()
                         .specificationName("Test specification")
+                        .mark(0.0)
                         .description("Description")
                         .author(userRepository.findById(1L).get())
                         .specificationType(SpecificationType.STANDARD_SPECIFICATION)
@@ -81,16 +94,36 @@ public class AnalysisApplication implements CommandLineRunner {
 
                 SpecificationElement specificationElement = SpecificationElement.builder()
                         .sequenceNumber(1)
-                        .elementTitle("TEST")
+                        .elementTitle("specificationElement1")
                         .specificationElements(null)
                         .specification(specification)
-                        .text("specificationElement")
                         .build();
 
-                specification.setSpecificationElements(Collections.singletonList(specificationElement));
-//                specificationElementRepository.save(specificationElement);
+                SpecificationElement specificationElement21 = SpecificationElement.builder()
+                        .sequenceNumber(1)
+                        .elementTitle("specificationElement2.1")
+                        .specificationElements(null)
+                        .specification(null)
+                        .build();
+
+                SpecificationElement specificationElement2 = SpecificationElement.builder()
+                        .sequenceNumber(2)
+                        .elementTitle("specificationElement2")
+                        .specificationElements(Collections.singletonList(specificationElement21))
+                        .specification(specification)
+                        .build();
+
+                SpecificationElement specificationElement3 = SpecificationElement.builder()
+                        .sequenceNumber(3)
+                        .elementTitle("specificationElement3")
+                        .specificationElements(null)
+                        .specification(specification)
+                        .build();
+
+                specification.setSpecificationElements(Arrays.asList(specificationElement, specificationElement2, specificationElement3));
                 System.out.println("Specification: \n" + specification.toString());
                 specificationRepository.save(specification);
+
                 System.out.println("Specification created:\n" + specification.toString());
             }
         }

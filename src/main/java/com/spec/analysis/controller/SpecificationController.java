@@ -22,10 +22,9 @@ public class SpecificationController {
     }
 
     @PostMapping("/{userId}")
-    public ResponseEntity<Boolean> addSpecification(@RequestBody SpecificationDTO specificationDTO,
+    public ResponseEntity<Long> addSpecification(@RequestBody SpecificationDTO specificationDTO,
                                                     @PathVariable("userId") Long userId) {
-        specificationService.addSpecification(userId, specificationDTO);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>( specificationService.addSpecification(userId, specificationDTO), HttpStatus.OK);
     }
 
     // Done
@@ -62,7 +61,13 @@ public class SpecificationController {
                 .getSpecificationsByStudentIdAndType(studentId, studentSpecificationType), HttpStatus.OK);
     }
 
-    @PutMapping("/evaluate/{studentSpecificationId}")
+    @PostMapping("/student/update/{userId}")
+    public ResponseEntity<Void> updateSpecification(@PathVariable("userId") Long userId, @RequestBody SpecificationDTO specificationDTO) {
+        specificationService.updateSpecification(userId, specificationDTO);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/evaluate/{studentSpecificationId}")
     public ResponseEntity<ObjectResponse> evaluateSpecification(@PathVariable("studentSpecificationId") Long studentSpecificationId) {
         return new ResponseEntity<>(specificationService.evaluateSpecification(studentSpecificationId), HttpStatus.OK);
     }

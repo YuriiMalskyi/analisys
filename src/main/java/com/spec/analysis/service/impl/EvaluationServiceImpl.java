@@ -2,13 +2,11 @@ package com.spec.analysis.service.impl;
 
 import com.spec.analysis.entity.Specification;
 import com.spec.analysis.entity.SpecificationElement;
-import com.spec.analysis.enums.SpecificationType;
 import com.spec.analysis.repository.SpecificationRepository;
 import com.spec.analysis.service.EvaluationService;
 import com.spec.analysis.service.constants.ElementsMapKeys;
 import com.spec.analysis.utils.formatter.NumbersFormatter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -42,7 +40,11 @@ public class EvaluationServiceImpl implements EvaluationService {
             Double mainElementsMark = 0.0;
             Double childElementsMark = 0.0;
 
-            int mainElementsMarkPercentage = (childElementsCount != 0) ? 30 : 100;
+            // TODO refactor
+            Integer realChildElementsCount = getChildElementsCount(standardSpecification.getSpecificationElements()) - standardSpecification.getSpecificationElements().size();
+            childElementsCount = realChildElementsCount;
+
+            int mainElementsMarkPercentage = (realChildElementsCount != 0) ? 30 : 100;
             int childElementsMarkPercentage = 70;
 
             if (mainElementsCount != 0 && mainElementsCorrect != 0) {
@@ -51,17 +53,41 @@ public class EvaluationServiceImpl implements EvaluationService {
                                 * mainElementsCorrect.doubleValue());
             }
 
+
             if (childElementsCount != 0 && childElementsPoints != 0) {
                 childElementsMark = NumbersFormatter.formatDouble(
                         (childElementsMarkPercentage / childElementsCount.doubleValue())
                                 * childElementsPoints.doubleValue());
             }
 
+            log.info("\n------------------------------------------------------------------------------------------------"
+                    + "\n|\tEvaluation completed:"
+                    + "\n|\tBase elements points: " + mainElementsCorrect + " | Base elements count: " + mainElementsCount
+                    + "\n|\tChild elements points: " + childElementsPoints + " | Child elements count: " + childElementsCount
+                    + "\n------------------------------------------------------------------------------------------------"
+                    + "\n|\tResult: " + (childElementsMark + mainElementsMark)
+                    + "\n------------------------------------------------------------------------------------------------");
             return childElementsMark + mainElementsMark;
         } else {
             return null;
         }
 
+    }
+
+    private int getChildElementsCount(List<SpecificationElement> specificationElements) {
+        int count = 0;
+            for (SpecificationElement element : specificationElements) {
+                count++;
+                if (element.getSpecificationElements() != null && element.getSpecificationElements().size() > 0) {
+                    for (SpecificationElement el : element.getSpecificationElements()) {
+                        count++;
+                        if (el.getSpecificationElements() != null && el.getSpecificationElements().size() > 0) {
+                            count += getChildElementsCount(el.getSpecificationElements());
+                        }
+                    }
+                }
+            }
+        return count;
     }
 
     private Map<ElementsMapKeys, Integer> startEvaluationProcess(List<SpecificationElement> studentSpecification,
@@ -81,11 +107,6 @@ public class EvaluationServiceImpl implements EvaluationService {
             SpecificationElement standardSpecificationElement = (SpecificationElement) standardIterator.next();
             SpecificationElement studentSpecificationElement = (SpecificationElement) studentIterator.next();
 
-            log.info("==============================================================================================================================");
-            log.info("standardSpecificationElement #" + standardSpecificationElement.getSequenceNumber() + ": " + standardSpecificationElement.toString());
-            log.info("studentSpecificationElement #" + studentSpecificationElement.getSequenceNumber() + ": " + studentSpecificationElement.toString());
-            log.info("==============================================================================================================================");
-
             if (standardSpecificationElement.getElementTitle().equals(studentSpecificationElement.getElementTitle())
                     && standardSpecificationElement.getSequenceNumber().equals(studentSpecificationElement.getSequenceNumber())) {
                 mainElementsCorrect++; // because elements are equals
@@ -95,8 +116,8 @@ public class EvaluationServiceImpl implements EvaluationService {
 
                     int[] points_elementsCount = startEvaluation(studentSpecificationElement.getSpecificationElements(),
                             standardSpecificationElement.getSpecificationElements());
-                    childElementsCount = points_elementsCount[1];
-                    childElementsPoints = points_elementsCount[0];
+                    childElementsCount += points_elementsCount[1];
+                    childElementsPoints += points_elementsCount[0];
 
                 }
 
@@ -106,8 +127,8 @@ public class EvaluationServiceImpl implements EvaluationService {
 
                         int[] points_elementsCount = startEvaluation(studentSpecificationElement.getSpecificationElements(),
                                 standardSpecificationElement.getSpecificationElements());
-                        childElementsCount = points_elementsCount[1];
-                        childElementsPoints = points_elementsCount[0];
+                        childElementsCount += points_elementsCount[1];
+                        childElementsPoints += points_elementsCount[0];
                         break;
 
                     }
@@ -120,12 +141,6 @@ public class EvaluationServiceImpl implements EvaluationService {
         values.put(ElementsMapKeys.MAIN_ELEMENTS_CORRECT, mainElementsCorrect);
         values.put(ElementsMapKeys.CHILD_ELEMENTS_COUNT, childElementsCount);
         values.put(ElementsMapKeys.CHILD_ELEMENTS_POINTS, childElementsPoints);
-
-        log.info("\n------------------------------------------------------------------------------------------------"
-                + "\n|\tEvaluation completed:"
-                + "\n|\tBase elements points: " + mainElementsCorrect + " | Base elements count: " + mainElementsCount
-                + "\n|\tChild elements points: " + childElementsPoints + " | Child elements count: " + childElementsCount
-                + "\n------------------------------------------------------------------------------------------------");
 
         return values;
     }
@@ -153,17 +168,12 @@ public class EvaluationServiceImpl implements EvaluationService {
                     points++;
                 }
 
-                log.info("==============================================================================================================================");
-                log.info("childStandardSpecificationElement #" + standardElement.getSequenceNumber() + ": " + standardElement.toString());
-                log.info("childStudentSpecificationElement #" + studentElement.getSequenceNumber() + ": " + studentElement.toString());
-                log.info("==============================================================================================================================");
-
                 if (Objects.nonNull(studentElement.getSpecificationElements())
                         && Objects.nonNull(standardElement.getSpecificationElements())) {
 
                     points_elementCount = startEvaluation(studentElement.getSpecificationElements(),
                             standardElement.getSpecificationElements());
-
+                    log.info("Points: " + points_elementCount[0] + " | Elements count: " + points_elementCount[1]);
                     points += points_elementCount[0];
                     elementsCount += points_elementCount[1];
 

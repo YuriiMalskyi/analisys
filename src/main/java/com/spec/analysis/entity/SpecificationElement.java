@@ -14,18 +14,16 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"specification"})
+//@ToString(exclude = {"specification"})
 @Table(name = "specification_elements")
 public class SpecificationElement extends BaseEntity {
 
     @Column(name = "sequence_number")
     private Integer sequenceNumber;
 
-    private String text;
-
     private String elementTitle;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
     @JoinTable(
             name = "elements_hierarchy",
             joinColumns = {@JoinColumn(name = "base_spec_id", referencedColumnName = "id")},

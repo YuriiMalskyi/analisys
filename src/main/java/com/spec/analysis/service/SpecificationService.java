@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface SpecificationService {
 
-    void addSpecification(Long userId, SpecificationDTO specificationDTO);
+    Long addSpecification(Long userId, SpecificationDTO specificationDTO);
 
-    void updateSpecification(SpecificationDTO specificationDTO);
+    void updateSpecification(Long userId, SpecificationDTO specificationDTO);
 
     SpecificationDTO getSpecificationById(Long id);
 

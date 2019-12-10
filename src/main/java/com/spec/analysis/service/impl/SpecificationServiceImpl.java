@@ -40,9 +40,12 @@ public class SpecificationServiceImpl implements SpecificationService {
         this.evaluationService = evaluationService;
     }
 
-    //TODO parsing list objects
     @Override
-    public void addSpecification(Long userId, SpecificationDTO specificationDTO) {
+    public Long addSpecification(Long userId, SpecificationDTO specificationDTO) {
+        if (specificationDTO.getId() != null && specificationRepository.existsById(specificationDTO.getId())) {
+            specificationRepository.delete(specificationRepository.getOne(specificationDTO.getId()));
+            specificationDTO.setId(null);
+        }
         Specification specification = mapper.map(specificationDTO, Specification.class);
         specification.setMark(0.0);
         if (Objects.isNull(specification.getSpecificationType())) {
@@ -60,12 +63,16 @@ public class SpecificationServiceImpl implements SpecificationService {
         specification.setStandardSpecification(
                 specificationRepository.findById(specificationDTO.getStandardSpecificationId()).orElse(null));
         specificationRepository.save(specification);
+
+        return specification.getId();
     }
 
     @Override
-    public void updateSpecification(SpecificationDTO specificationDTO) {
-        Specification specification = mapper.map(specificationDTO, Specification.class);
-        specificationRepository.save(specification);
+    public void updateSpecification(Long userId, SpecificationDTO specificationDTO) {
+        if (specificationRepository.existsById(specificationDTO.getId())) {
+            specificationRepository.delete(specificationRepository.getOne(specificationDTO.getId()));
+        }
+        addSpecification(userId, specificationDTO);
     }
 
     @Override
@@ -77,6 +84,7 @@ public class SpecificationServiceImpl implements SpecificationService {
                 && specificationDTO != null
                 && optionalSpecification.get().getSpecificationElements().size() > 0) {
             fillList(optionalSpecification.get(), specificationDTO);
+            specificationDTO.setStandardSpecificationId(optionalSpecification.get().getStandardSpecification().getId());
         }
         return specificationDTO;
     }
