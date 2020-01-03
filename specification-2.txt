@@ -1,0 +1,127 @@
+{
+    "description": "Опис специфікації вимог до системи обліку роботи підприємства інтер’єрних робіт",
+    "standard_specification_id": 1,
+    "specification_name": "Система обліку роботи підприємства інтер’єрних робіт",
+    "specification_type": "STANDARD_SPECIFICATION",
+    "specification_elements": [
+        {
+            "sequence_number": 1,
+            "element_title": "Вступ",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Призначення",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Область застосування",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Визначення, акроніми та скорочення",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 4,
+                    "element_title": "Короткий огляд",
+                    "specification_elements": []
+                }
+            ]
+        },
+        {
+            "sequence_number": 2,
+            "element_title": "Короткий опис",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Позиціонування продукту",
+                    "specification_elements": [
+                        {
+                            "sequence_number": 1,
+                            "element_title": "Користувацькі інтерфейси",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 2,
+                            "element_title": "Апаратні інтерфейси",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 3,
+                            "element_title": "Програмні інтерфейси",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 4,
+                            "element_title": "Комунікаційні інтерфейси",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 5,
+                            "element_title": "Обмеження до пам'яті",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 6,
+                            "element_title": "Вимоги до адаптивності",
+                            "specification_elements": []
+                        }
+                    ]
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Функції продукту",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Користувацькі характеристики",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 4,
+                    "element_title": "Обмеження",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 5,
+                    "element_title": "Припущення та залежності",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 6,
+                    "element_title": "Розподіл вимог",
+                    "specification_elements": []
+                }
+            ]
+        },
+        {
+            "sequence_number": 3,
+            "element_title": "Специфічні вимоги",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Функції",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Вимоги до продуктивності",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Логічні вимоги до бази даних",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 4,
+                    "element_title": "Атрибути програмної системи",
+                    "specification_elements": []
+                }
+            ]
+        }
+    ]
+}

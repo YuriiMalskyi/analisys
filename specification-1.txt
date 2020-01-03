@@ -1,0 +1,239 @@
+{
+    "description": "Опис специфікації вимог до системи обліку роботи підприємства інтер’єрних робіт",
+    "standard_specification_id": 1,
+    "specification_name": "Система обліку роботи підприємства інтер’єрних робіт",
+    "specification_type": "STANDARD_SPECIFICATION",
+    "specification_elements": [
+        {
+            "sequence_number": 1,
+            "element_title": "Вступ",
+            "specification_elements": []
+        },
+        {
+            "sequence_number": 2,
+            "element_title": "Загальний опис",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Перспективи продукту",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Характеристика продукту",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Класи користувачів та їх характеристики",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 4,
+                    "element_title": "Середовище функціонування",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 5,
+                    "element_title": "Обмеження проектування та реалізації",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 6,
+                    "element_title": "Документація користувача",
+                    "specification_elements": []
+                }
+                ]
+        },
+        {
+            "sequence_number": 3,
+            "element_title": "Характеристики системи",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Авторизація користувачів",
+                    "specification_elements": [
+		                {
+		                    "sequence_number": 1,
+		                    "element_title": "Опис і пріорітети",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 2,
+		                    "element_title": "Послідовність дій/відгук",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 3,
+		                    "element_title": "Функціональні вимоги",
+		                    "specification_elements": []
+		                }]
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Керування характеристиками замірів об'єкту",
+                    "specification_elements": [
+	                    	{
+			                    "sequence_number": 1,
+			                    "element_title": "Опис і пріорітети",
+			                    "specification_elements": []
+			                },
+			                {
+			                    "sequence_number": 2,
+			                    "element_title": "Послідовність дій/відгук",
+			                    "specification_elements": []
+			                },
+			                {
+			                    "sequence_number": 3,
+			                    "element_title": "Функціональні вимоги",
+			                    "specification_elements": []
+			                }]
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Керування інтер'єрними моделями",
+                    "specification_elements": [
+		                {
+		                    "sequence_number": 1,
+		                    "element_title": "Опис і пріорітети",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 2,
+		                    "element_title": "Послідовність дій/відгук",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 3,
+		                    "element_title": "Функціональні вимоги",
+		                    "specification_elements": []
+		                }]
+                },
+                {
+                    "sequence_number": 4,
+                    "element_title": "Збереження інформації про транзакції за виконані роботи",
+                    "specification_elements": [
+		                {
+		                    "sequence_number": 1,
+		                    "element_title": "Опис і пріорітети",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 2,
+		                    "element_title": "Послідовність дій/відгук",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 3,
+		                    "element_title": "Функціональні вимоги",
+		                    "specification_elements": []
+		                }]
+                },
+                {
+                    "sequence_number": 5,
+                    "element_title": "Керування користувачами",
+                    "specification_elements": [
+		                {
+		                    "sequence_number": 1,
+		                    "element_title": "Опис і пріорітети",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 2,
+		                    "element_title": "Послідовність дій/відгук",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 3,
+		                    "element_title": "Функціональні вимоги",
+		                    "specification_elements": []
+		                }]
+                },
+                {
+                    "sequence_number": 6,
+                    "element_title": "Керування інформацією про об'єкти",
+                    "specification_elements": [
+		                {
+		                    "sequence_number": 1,
+		                    "element_title": "Опис і пріорітети",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 2,
+		                    "element_title": "Послідовність дій/відгук",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 3,
+		                    "element_title": "Функціональні вимоги",
+		                    "specification_elements": []
+		                }]
+                },
+                {
+                    "sequence_number": 7,
+                    "element_title": "Керування інформацією про клієнтів",
+                    "specification_elements": [
+		                {
+		                    "sequence_number": 1,
+		                    "element_title": "Опис і пріорітети",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 2,
+		                    "element_title": "Послідовність дій/відгук",
+		                    "specification_elements": []
+		                },
+		                {
+		                    "sequence_number": 3,
+		                    "element_title": "Функціональні вимоги",
+		                    "specification_elements": []
+		                }]
+                }]
+        },
+        {
+            "sequence_number": 4,
+            "element_title": "Вимоги зовнішніх інтерфейсів",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Апаратні інтерфейси",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Програмні інтерфейси",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Комунікаційні інтерфейси",
+                    "specification_elements": []
+                }]
+        },
+        {
+            "sequence_number": 5,
+            "element_title": "Нефункціональні вимоги до проекту",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Вимоги продуктивності",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Вимоги надійності",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Вимоги безпеки",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 4,
+                    "element_title": "Атрибути якості програмного продукту",
+                    "specification_elements": []
+                }]
+        }
+    ]
+}

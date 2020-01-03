@@ -1,0 +1,199 @@
+{
+    "description": "Розробити специфікацію вимог до програмного продукту 'Віртуальна лабораторія програмної інженерії'",
+    "standard_specification_id": 1,
+    "specification_name": "Специфікація вимог до нового програмного забезпечення",
+    "specification_type": "STANDARD_SPECIFICATION",
+    "specification_elements": [
+        {
+            "sequence_number": 1,
+            "element_title": "Загальні положення",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Повна назва системи",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Коротка назва системи",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Основа для проведення робіт",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 4,
+                    "element_title": "Планові терміни початку та закінчення робіт",
+                    "specification_elements": [
+                        {
+                            "sequence_number": 1,
+                            "element_title": "Плановий термін початку робіт по створенню системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 2,
+                            "element_title": "Плановий термін закінчення робіт по створенню системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 3,
+                            "element_title": "Порядок оформлення та представлення замовнику результатів робіт",
+                            "specification_elements": []
+                        }
+                    ]
+                },
+                {
+                    "sequence_number": 5,
+                    "element_title": "Перелік нормативно-технічних документів, методичних матеріалів, які використовуватимуться при розробці ТЗ",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 6,
+                    "element_title": "Визначення, позначення та скорочення",
+                    "specification_elements": []
+                }
+            ]
+        },
+        {
+            "sequence_number": 2,
+            "element_title": "Призначення та цілі створення програмного продукту",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Призначення проекту",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Цілі створення проекту",
+                    "specification_elements": []
+                }
+            ]
+        },
+        {
+            "sequence_number": 3,
+            "element_title": "Характеристики об'єктів системи",
+            "specification_elements": []
+        },
+        {
+            "sequence_number": 4,
+            "element_title": "Вимоги до системи",
+            "specification_elements": [
+                {
+                    "sequence_number": 1,
+                    "element_title": "Вимоги до системи в цілому",
+                    "specification_elements": [
+                        {
+                            "sequence_number": 1,
+                            "element_title": "Вимоги до структури та функціонування системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 2,
+                            "element_title": "Вимоги до чисельності та кваліфікації персоналу системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 3,
+                            "element_title": "Показники призначення",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 4,
+                            "element_title": "Вимоги до надійності",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 5,
+                            "element_title": "Вимоги до безпеки",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 6,
+                            "element_title": "Вимоги до ергономіки та технічної естетики",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 7,
+                            "element_title": "Вимоги до захисту інформації від несанкціонованого доступу",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 8,
+                            "element_title": "Вимоги до збереження інформації при збоях",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 9,
+                            "element_title": "Вимоги до стандартів та уніфікації",
+                            "specification_elements": []
+                        }
+                    ]
+                },
+                {
+                    "sequence_number": 2,
+                    "element_title": "Вимоги до функціоналу системи",
+                    "specification_elements": []
+                },
+                {
+                    "sequence_number": 3,
+                    "element_title": "Вимоги до забезпечення системи",
+                    "specification_elements": [
+                        {
+                            "sequence_number": 1,
+                            "element_title": "Вимоги до алгоритмічного забезпечення системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 2,
+                            "element_title": "Вимоги до інформаційного забезпечення системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 3,
+                            "element_title": "Вимоги до лінгвістичного забезпечення системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 4,
+                            "element_title": "Вимоги до програмного забезпечення системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 5,
+                            "element_title": "Вимоги до технічного забезпечення системи",
+                            "specification_elements": []
+                        },
+                        {
+                            "sequence_number": 6,
+                            "element_title": "Вимоги до організаційного забезпечення",
+                            "specification_elements": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sequence_number": 5,
+            "element_title": "Склад та зміст робіт щодо створення та підтримки системи",
+            "specification_elements": []
+        },
+        {
+            "sequence_number": 6,
+            "element_title": "Порядок контролю та прийому системи",
+            "specification_elements": []
+        },
+        {
+            "sequence_number": 7,
+            "element_title": "Вимоги до документування",
+            "specification_elements": []
+        },
+        {
+            "sequence_number": 8,
+            "element_title": "Джерела розробки",
+            "specification_elements": []
+        }
+    ]
+}
